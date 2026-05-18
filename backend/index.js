@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import scanController from './controllers/scanController.js';
+import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -15,9 +16,11 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ API Conectada ao Banco do Mobile!"))
     .catch((err) => console.log("❌ Erro no Banco:", err));
 
-// ROTA DA API QUE O WEB VAI CHAMAR
+// Agrupa todas as rotas de usuários/pacientes sob o prefixo /api
+app.use("/api", userRoutes);
 app.get("/api/logs", scanController.getAllScans);
 
-app.listen(3000, () => {
-    console.log(`🚀 API RotuScan rodando na porta 3000`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`🚀 API RotuScan rodando na porta ${PORT}`);
 });

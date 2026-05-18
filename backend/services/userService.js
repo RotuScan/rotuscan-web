@@ -23,6 +23,11 @@ class UserService {
     async getPatientById(id) {
         return await User.findById(id).select("-password"); // Retorna sem a senha
     }
+
+    async getAll() {
+        // Busca todos os usuários, ocultando a senha por segurança
+        return await User.find().select("-password");
+    }
 }
 
 export default new UserService();
