@@ -4,8 +4,6 @@ Substitua ou crie o arquivo na raiz da sua pasta mobile com o conteúdo abaixo:
 Markdown
 # 📱 RotuScan - Aplicativo Móvel (Guia de Instalação e Execução)
 
-Bem-vindo à documentação técnica do módulo mobile do **RotuScan**. Este guia foi desenvolvido especificamente para orientar coordenadores, professores e avaliadores da banca a configurarem, instalarem e executarem o aplicativo em ambiente local de testes de forma simples e direta.
-
 O RotuScan Mobile é o assistente do paciente, responsável por capturar fotos de rótulos de alimentos, processar os textos através de um motor de Reconhecimento Óptico de Caracteres (OCR), validar os ingredientes com base nas restrições definidas pelo Nutricionista e salvar o histórico diretamente no banco de dados em nuvem.
 
 ---
@@ -40,14 +38,11 @@ Abra o terminal do seu sistema operacional ou o terminal do VS Code e navegue at
 ```bash
 cd ROTUSCAN/rotuscan-mobile
 Passo 2: Instalação de Dependências (npm install)
-Para baixar automaticamente todas as bibliotecas necessárias para a execução do app (incluindo pacotes de câmera, navegação de telas e comunicação HTTP), execute o seguinte comando:
 
-Bash
+No terminal Bash execute: 
 npm install
-Este comando lerá o arquivo package.json e gerará de forma automatizada a pasta node_modules com os binários necessários.
 
 Passo 3: Configuração do Arquivo de Ambiente (.env)
-O aplicativo móvel necessita saber o endereço de rede IP onde a nossa API (Back-end) está escutando para conseguir enviar as requisições de conferência.
 
 Na raiz da pasta mobile, crie um arquivo chamado exatamente .env.
 
@@ -81,15 +76,3 @@ Um QR Code grande será desenhado diretamente na tela do seu terminal.
 Pegue o seu celular físico conectado na mesma rede Wi-Fi do computador, abra o aplicativo Expo Go e selecione a opção de escanear código QR.
 
 Aponte para a tela do computador. O projeto sofrerá o processo de build inicial em segundos e o RotuScan Mobile abrirá nativamente no seu aparelho, pronto para realizar os testes de scanner!
-
-
----
-
-### 💡 Dicas de uso com o Gemini Code Assist:
-Se os seus professores perguntarem sobre arquivos específicos, você pode usar os seguintes comandos no seu assistente do VS Code:
-* Se quiser listar detalhadamente o nome de cada biblioteca instalada:
-  > *"Gemini, olhe o meu arquivo `package.json` da pasta mobile e gere um texto resumido explicando o papel de cada biblioteca da seção `dependencies` para eu anexar na documentação do projeto."*
-* Se houver algum erro de rota na comunicação mobile-banco:
-  > *"Gemini, revise a função de envio de imagens no meu app mobile e confirme se ela está consumindo corretamente a variável `API_URL` vinda do arquivo `.env`."*
-
-Esse guia em Markdown deixará claro para qualquer professor como o sistema foi construído, quais comandos rodar e como o banco de dados `RotuScanDB` recebe os registros! Quer ajustar mais alguma seção desse guia?
